@@ -1,0 +1,18 @@
+[package]
+name = "android-no-glue"
+version = "0.1.0"
+authors = ["David Craven <david@craven.ch>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib", "staticlib"]
+
+[dependencies]
+gl = "0.14.0"
+glutin = { path = "../glutin" }
+log = "0.4.8"
+simple_logger = "1.5.0"
+winit = { path = "../winit" }
+
+[target.'cfg(target_os = "android")'.dependencies]
+android-glue = { git = "https://github.com/dvc94ch/android-ndk-rs", branch = "android-glue" }
